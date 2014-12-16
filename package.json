@@ -1,0 +1,19 @@
+{
+  "name": "google-analytics-c3-adapter",
+  "version": "0.0.0",
+  "description": "A simple adapter for Google Analytics responses and c3 Data Structures",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MonkDev/google-analytics-c3-adapter.git"
+  },
+  "author": "Kenny Kaye <kenny@monkdevelopment.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MonkDev/google-analytics-c3-adapter/issues"
+  },
+  "homepage": "https://github.com/MonkDev/google-analytics-c3-adapter"
+}
