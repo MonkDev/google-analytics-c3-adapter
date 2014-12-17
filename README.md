@@ -1,10 +1,16 @@
 Google Analytics C3 Adapter
 ===========================
 
-1> A simple adapter for Google Analytics responses and c3 Data Structures
+> A simple adapter for Google Analytics responses and c3 Data Structures
+
+# Building & Testing
+Custom Tasks:
+
+* `gulp build` - Build distribution
+* `gulp test` - Run tests.
 
 # License
-Copyright 2014 Monk Development <http://monkdevelopment.com/>
+Copyright 2014 [Monk Development](http://monkdevelopment.com/)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
