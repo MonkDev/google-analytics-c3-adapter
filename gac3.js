@@ -18,8 +18,8 @@
    *
    * @private
    * @param {Object}    params
-   * @param {Array}     params.keys
    * @param {Array}     params.sources
+   * @param {Array}     params.keys
    * @param {Function}  params.callback
    */
   function formatColumns (params) {
@@ -39,13 +39,7 @@
         }
       });
     });
-
-    // Flatten single source arrays
-    if(columns.length === 1) {
-      return columns.reduce(function (a, b) { return a.concat(b); });
-    } else {
-      return columns;
-    }
+    return columns;
   }
 
   /**
