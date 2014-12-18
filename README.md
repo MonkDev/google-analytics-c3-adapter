@@ -1,15 +1,30 @@
-Google Analytics C3 Adapter
-===========================
+# Google Analytics C3 Adapter
 
-> A simple adapter for Google Analytics responses and c3 Data Structures
+> A simple adapter for Google Analytics responses and C3 Data Structures
 
-# Building & Testing
+## Installation
+
+In a browser:
+
+```html
+<script src="gac3.min.js"></script>
+```
+
+
+In an AMD loader:
+
+```js
+require(['gac3.min'], function (gac3) {/*…*/});
+```
+
+
+## Building & Testing
 Custom Tasks:
 
 * `gulp build` - Build distribution
 * `gulp test` - Run tests.
 
-# License
+## License
 Copyright 2014 [Monk Development](http://monkdevelopment.com/)
 
 Permission is hereby granted, free of charge, to any person obtaining
