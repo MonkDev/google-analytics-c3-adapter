@@ -17,31 +17,75 @@ In an AMD loader:
 require(['gac3.min'], function (gac3) {/*…*/});
 ```
 
+## Usage
+
+### Parameters
+
+Name | Value | Required | Summary
+---- | ----- | -------- | -------
+sources | `Array` | **yes** | An array of Google Analytics response objects.
+keys | `Array` | no | An array of keys to use for each data source. If keys are present, then there must be an equal number of data sources, otherwise a `RangeError` will be thrown.
+callback | `Function` | no | Executes once per Google Analytics `response.row`, taking one argument: `data`, which is the value of the data in the given row.
+
+### Examples
+
+**Basic Usage** - *Use exiting Google Analytics keys:*
+```js
+gac3.columns({
+  sources: [response]
+});
+```
+
+*returns:*
+
+```js
+[['mobile', 672723], ['desktop', 615659], ['tablet', 164285]]
+```
+
+**Keys** - *Specify a key to group data by:*
+
+```js
+gac3.columns({
+  keys: ['Bounce Rate %'],
+  sources: [response]
+});
+```
+
+*returns:*
+
+```js
+[
+  ['Bounce Rate %', 52.1, 66.7, 21.9, 34.3, 20.2, 21.6, 34.4, 56.0, 60.5, 44.2, 57.1]
+]
+```
+
+
+**Multiple Data Sources** - *Specify multiple data sources with an optional callback:*
+
+```js
+gac3.columns({
+  keys: ['Last Year', 'This Year'],
+  sources: [lastYearResponse, thisYearResponse],
+  callback: function (data) { return parseInt(data, 10); }
+});
+```
+
+*returns:*
+
+```js
+[
+  ['Last Year', 521, 667, 219, 343, 202, 216, 344, 560, 605, 442, 571],
+  ['This Year', 343, 442, 560, 216, 667, 571, 344, 973, 571, 334, 987]
+]
+```
 
 ## Building & Testing
 Custom Tasks:
 
-* `gulp build` - Build distribution
+* `gulp build` - Build distribution.
 * `gulp test` - Run tests.
 
 ## License
 Copyright 2014 [Monk Development](http://monkdevelopment.com/)
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[MIT](https://github.com/MonkDev/google-analytics-c3-adapter/blob/master/LICENSE.txt)
