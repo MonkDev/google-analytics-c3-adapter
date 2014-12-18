@@ -12,7 +12,7 @@ var files = {
   ]
 };
 
-gulp.task('test', function () {
+gulp.task('karma', function () {
   return gulp.src(files.testsFiles)
     .pipe(karma({
       configFile: 'tests/karma.conf.js',
@@ -29,6 +29,5 @@ gulp.task('build', function () {
     .pipe(rename({ suffix: '.min'}))
     .pipe(gulp.dest(files.dest));
 });
-
-gulp.task('default', [ 'build', 'test' ]);
+gulp.task('test', [ 'build', 'karma' ]);
 gulp.watch(files.source, [ 'build' ]);
