@@ -23,8 +23,8 @@ require(['gac3.min'], function (gac3) {/*…*/});
 
 Name | Parameters | Description
 ---- | ---------- | -----------
-`columns(params)` | object | Transforms data source(s) to [C3 columns](http://c3js.org/reference.html#data-columns) format.
-`rows(params)` | object | Transforms data source(s) to [C3 rows](http://c3js.org/reference.html#data-rows) format. _TODO: Not yet implemented._
+`columns(params)` | `Object` | Transforms data source(s) to [C3 columns](http://c3js.org/reference.html#data-columns) format.
+`rows(params)` | `Object` | Transforms data source(s) to [C3 rows](http://c3js.org/reference.html#data-rows) format. _TODO: Not yet implemented._
 
 
 ### Parameters
