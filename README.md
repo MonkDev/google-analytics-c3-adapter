@@ -1,4 +1,4 @@
-# Google Analytics C3 Adapter
+# Google Analytics C3 Adapter [![Build Status](https://travis-ci.org/MonkDev/google-analytics-c3-adapter.svg?branch=master)](https://travis-ci.org/MonkDev/google-analytics-c3-adapter)
 
 > A simple adapter for Google Analytics responses and C3 Data Structures
 
@@ -18,6 +18,14 @@ require(['gac3.min'], function (gac3) {/*…*/});
 ```
 
 ## Usage
+
+### Methods
+
+Name | Parameters | Description
+---- | ---------- | -----------
+columns() | `params` | Transforms data source(s) to [C3 columns](http://c3js.org/reference.html#data-columns) format.
+rows() | `params` | Transforms data source(s) to [C3 rows](http://c3js.org/reference.html#data-rows) format. _TODO: Not yet implemented._
+
 
 ### Parameters
 
