@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var exit = require('gulp-exit');
 var karma = require('gulp-karma');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -20,7 +21,8 @@ gulp.task('karma', function () {
     }))
     .on('error', function (err) {
       throw err;
-    });
+    })
+    .pipe(exit());
 });
 
 gulp.task('build', function () {
