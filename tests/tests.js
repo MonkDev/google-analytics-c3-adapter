@@ -6,6 +6,7 @@ describe('gac3', function () {
   before('sets up data structures', function () {
     timeData1 = { rows: [['01', '157.2118'], ['02', '184.6965'], ['03', '183.8783'], ['04', '157.2118'], ['05', '184.6965'], ['06', '183.8783'], ['07', '133.1900'], ['08', '157.2118'], ['09', '184.6965'], ['10', '184.6965'], ['11', '133.1900'], ['12', '157.2118']] },
     timeData2 = { rows: [['01', '140.8366'], ['02', '183.8783'], ['03', '184.6965'], ['04', '137.2118'], ['05', '194.6965'], ['06', '183.8783'], ['07', '133.1900'], ['08', '157.2118'], ['09', '181.365'], ['10', '122.6965'], ['11', '163.1900'], ['12', '150.2118']] },
+    emptyData = { sources: [{}] },
     deviceType = { rows: [['mobile', '672723'], ['desktop', '615659'], ['tablet', '164285']] },
     singleSourceNoKeys = { sources: [deviceType] },
     singleSourceUserKeys = { keys: ['Bounce Rate'], sources: [timeData1] },
@@ -20,6 +21,14 @@ describe('gac3', function () {
   });
 
   describe('gac3.columns()', function () {
+
+    describe('with an empty dataset', function () {
+      it('should return an empty array', function () {
+        var results = gac3.columns(emptyData);
+        assert.isArray(results, 'columns are a collection');
+        assert.lengthOf(results, 0, 'is an empty array');
+      });
+    });
 
     describe('with single-source data with no keys', function () {
       it('should return a collection of arrays', function () {

@@ -2,8 +2,6 @@
  * @license
  * Google Analytics C3 Adapter <https://github.com/monkdev/google-analytics-c3-adapter>
  * Copyright 2014 Monk Development <http://monkdevelopment.com/>
- * Inspired by Lo-Dash 2.4.1 <http://lodash.com/>
- * Copyright 2012-2013 The Dojo Foundation <http://dojofoundation.org/>
  * Available under MIT license <https://github.com/MonkDev/google-analytics-c3-adapter/blob/master/LICENSE.txt>
  */
 ;(function () {
@@ -30,21 +28,23 @@
 
     // Format columns
     params.sources.forEach(function (source, index) {
-      source.rows.forEach(function (row) {
-        var data = isFunction(params.callback) ? params.callback(+row[1]) : +row[1];
-        if(hasKeys) {
-          columns[index].push(data);
-        } else {
-          columns.push([row[0], data]);
-        }
-      });
+      if (source.rows) {
+        source.rows.forEach(function (row) {
+          var data = isFunction(params.callback) ? params.callback(+row[1]) : +row[1];
+          if(hasKeys) {
+            columns[index].push(data);
+          } else {
+            columns.push([row[0], data]);
+          }
+        });
+      }
     });
     return columns;
   }
 
   /**
    * Handle errors for given parameters.
-   * 
+   *
    * @param  {Object} params Params object
    * @return {Null}
    */
@@ -68,9 +68,9 @@
 
   /**
    * Determines whether object has user provided keys.
-   * This is used to differentiate between single-source data 
+   * This is used to differentiate between single-source data
    * with user provided keys and Google provided keys.
-   * 
+   *
    * @private
    * @param  {[type]}  params Params object.
    * @return {Boolean}        True if has user provided keys.
@@ -81,7 +81,7 @@
 
   /**
    * Checks if `value` is an array. Inspired by Lo-Dash.
-   * 
+   *
    * @private
    * @param  {*}       value The value to check.
    * @return {Boolean}       Returns `true` if the `value` is an array, else `false`.
@@ -106,7 +106,7 @@
 
   /*--------------------------------------------------------------------------*/
 
-  // Export 
+  // Export
   window.gac3 = gac3;
 
   if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
